@@ -18,16 +18,26 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  loading:boolean;
+
   saveData(){
+    this.loading=true
     if(this.data.id == undefined){
       this.api.post('books',this.data).subscribe(res=>{
         this.dialogRef.close(res);
+        this.loading=false
+      },error=>{
+        this.loading=false
+        alert('Tidak dapat menyimpan data');
       });
     }else {
       this.api.put('books/'+this.data.id,this.data).subscribe(res=>{
         this.dialogRef.close(res);
-        console.log(res);
-      })
+        this.loading=false
+      },error=>{
+        this.loading=false
+        alert('Tidak dapat menyimpan data');
+      });
     }
 
   }

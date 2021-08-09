@@ -36,9 +36,16 @@ export class ProductComponent implements OnInit {
     this.getBooks();
   }
 
+  loading:boolean;
+
   getBooks(){
+    this.loading=true;
     this.api.get('books').subscribe(res=>{
       this.books=res;
+      this.loading=false;
+    },error=>{
+      this.loading=false;
+      alert('Pengambilan Data Bermasalah, Try Again');
     })
   }
 
@@ -57,11 +64,18 @@ export class ProductComponent implements OnInit {
     })
   }
 
+  lodingDelete:any={};
+
   deleteProduct(id,index){
     var conf=confirm('Delete ini?');
     if(conf){
+      this.lodingDelete[index]=true;
       this.api.delete('books/'+id).subscribe(res=>{
         this.books.splice(index,1)
+        this.lodingDelete[index]=false;
+      },error=>{
+        this.lodingDelete[index]=false;
+        alert('Tidak Dapat menghapus data');
       });
     }
 
