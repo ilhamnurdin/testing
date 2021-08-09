@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ApiService } from 'src/app/services/api.service';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
 @Component({
@@ -18,10 +19,12 @@ export class ProductComponent implements OnInit {
   books:any=[];
 
   constructor(
-    public dialog:MatDialog
+    public dialog:MatDialog,
+    public api:ApiService
   ) { }
 
   ngOnInit(): void {
+
     this.title='Product'
     this.book={
       title:'Angular',
@@ -34,23 +37,9 @@ export class ProductComponent implements OnInit {
   }
 
   getBooks(){
-    // memeperbarui data Book
-    this.books=[
-      {
-        title:'Angular1',
-        author:'ilham1',
-        year:2021,
-        isbn:'121212121',
-        price: 100000
-      },
-      {
-        title:'Angular2',
-        author:'ilham2',
-        year:2021,
-        isbn:'121212121',
-        price: 150000
-      }
-    ];
+    this.api.get('books').subscribe(res=>{
+      this.books=res;
+    })
   }
 
   productDetail(data,index){
