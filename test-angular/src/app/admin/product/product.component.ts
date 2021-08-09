@@ -52,7 +52,7 @@ export class ProductComponent implements OnInit {
         // jika index=-1 (penambahan data baru) maka data diatambah
         if(index==-1)this.books.push(res);
         // jika tidak maka perbarui data
-        else this.books[index]=res;
+        else this.books[index]=data;
       }
     })
   }

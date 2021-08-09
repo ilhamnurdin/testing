@@ -19,9 +19,17 @@ export class ProductDetailComponent implements OnInit {
   }
 
   saveData(){
-    this.api.post('books',this.data).subscribe(res=>{
-      this.dialogRef.close(this.data)
-    })
+    if(this.data.id == undefined){
+      this.api.post('books',this.data).subscribe(res=>{
+        this.dialogRef.close(res);
+      });
+    }else {
+      this.api.put('books/'+this.data.id,this.data).subscribe(res=>{
+        this.dialogRef.close(res);
+        console.log(res);
+      })
+    }
+
   }
 
 }

@@ -19,4 +19,8 @@ export class ApiService {
   post(url,data){
     return this.http.post(this.serverUrl+url,data);
   }
+
+  put(url,data){
+    return this.http.put(this.serverUrl+url,data);
+  }
 }
