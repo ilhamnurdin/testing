@@ -1,1 +1,16 @@
 ini format SCSS angular
+
+> install node_module:
+    npm install
+> buat file angular baru:
+    ng n <nama-apps>
+> generate component:
+    ng g c <nama-component> || ng g c <nama-file(dibuat atau sudah exist)>/<nama-component>
+> generate module:
+    ng g m <nama-module>
+> generate service:
+    ng f s <nama-service>
+> Add Angular Material Design:
+    ng add @angular/material
+    (=> Y, => Y)
+
