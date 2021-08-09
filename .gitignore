@@ -1,0 +1,6 @@
+#ignore folder log
+log/
+
+#ignore file extension .backup
+*.backup
+
