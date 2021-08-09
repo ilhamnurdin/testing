@@ -1,0 +1,38 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            {{title}}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="uk-flex">
+            <span class="uk-width-expand"></span>
+            <button mat-flat-button color="primary" (click)="productDetail({},-1)">Tambah produk</button>
+        </div>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <thead>
+                <th>No</th>
+                <th>Judul</th>
+                <th>Nama</th>
+                <th>Tahun</th>
+                <th>ISBN</th>
+                <th>Harga</th>
+                <th align="right">Action</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of books; let index=index">
+                    <td>{{index+1}}</td>
+                    <td>{{book.title}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.year}}</td>
+                    <td>{{book.isbn}}</td>
+                    <td>{{book.price}}</td>
+                    <th align="right">
+                        <button mat-button color="primary" (click)="productDetail(book,index)">Edit</button>
+                        <button mat-button color="warn" (click)="deleteProduct(index)">Delete</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card>
