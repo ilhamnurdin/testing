@@ -57,9 +57,13 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  deleteProduct(index){
+  deleteProduct(id,index){
     var conf=confirm('Delete ini?');
-    if(conf)
-    this.books.splice(index,1)
+    if(conf){
+      this.api.delete('books/'+id).subscribe(res=>{
+        this.books.splice(index,1)
+      });
+    }
+
   }
 }
