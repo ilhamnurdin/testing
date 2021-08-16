@@ -20,3 +20,8 @@ ini format SCSS angular
 
 >   git merge
     ke barnch yg ingin di branch then, git branch <nama-barnch-asal>
+
+> update personal token access token on github
+    on github, profile nav -> settings -> developer settings -> Personal access tokens -> generate new token -> copied.
+    on windows, search credential manager -> windows credentials -> find git:https://github -> change the password with the token.
+    on git bash, command git push origin <name-branch> -> in usernam enter the username github, in password enter the token.
