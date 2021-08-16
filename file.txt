@@ -17,3 +17,6 @@ ini format SCSS angular
 > download UIKit
     https://getuikit.com/docs/introduction
     => import di style.scss, like: @import './uikit/css/uikit.css';
+
+>   git merge
+    ke barnch yg ingin di branch then, git branch <nama-barnch-asal>
