@@ -19,7 +19,11 @@ ini format SCSS angular
     => import di style.scss, like: @import './uikit/css/uikit.css';
 
 >   git merge
-    ke barnch yg ingin di branch then, git branch <nama-barnch-asal>
+    see what branch u used with $git branch, then ke branch yg ingin dimerge with $git checkout <nama-branch>,
+    pull first with $git pull origin <nama-branch>, then $git merge <nama-branch-asal-yang ingin di merge>, maybe some codes are conflict so watch carefully the codes what u want accept or not,
+    next see the changes with $git status or $git diff or $alias log="git log --all --decorate --oneline --graph" to see with $git log,
+    make sure and then $git add ., commit with $git commit -m "<comment-commit>",
+    last push with $git push origin <nama-branch>.
 
 > update personal token access token on github
     on github, profile nav -> settings -> developer settings -> Personal access tokens -> generate new token -> copied.
